@@ -1,0 +1,180 @@
+/* --- ZÁKLADNÍ STYL --- */
+
+header {
+  position: sticky;
+  z-index: 999;
+  top: 44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 24px;
+}
+
+.logo {
+  cursor: pointer;
+  color: var(--white);
+  font-family: var(--montserrat);
+  font-weight: 1000;
+  font-size: 40px;
+  width: 3ch;
+  letter-spacing: 3px;
+  word-wrap: break-word;
+  line-height: 1;
+  padding: 8px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Podtržení při hoveru */
+.logo::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #00ffff;
+  transition: width 0.3s ease;
+}
+
+/* Hover efekt */
+.logo:hover {
+  color: #00ffff;
+}
+
+.logo:hover::after {
+  width: 100%;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0 16px;
+  list-style: none;
+}
+
+a {
+  position: relative;
+  color: var(--white);
+  font-family: var(--inter);
+  font-size: 24px;
+  font-weight: 300;
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.3s ease;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #00ffff;
+  transition: width 0.3s ease;
+}
+
+a:hover {
+  color: #00ffff;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* --- BURGER MENU --- */
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.burger span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: var(--white);
+  transition: 0.3s ease;
+}
+
+/* Otevřený burger – animace do "X" */
+.burger span.open:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+.burger span.open:nth-child(2) {
+  opacity: 0;
+}
+.burger span.open:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* --- RESPONSIVE --- */
+
+@media (max-width: 1040px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  header {
+    padding: 16px 0;
+    top: 0;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+  }
+
+  .burger {
+    display: flex;
+    padding: 24px 24px;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #1E1F24;
+    opacity: 0;
+    transform: translateX(100%);
+    pointer-events: none;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    z-index: 1000;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .nav.open {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+    padding: 32px 24px;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .nav li {
+    margin: 12px 0;
+  }
+
+  .nav a {
+    font-size: 20px;
+    padding: 4px 0;
+  }
+}

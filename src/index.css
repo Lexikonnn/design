@@ -1,13 +1,209 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.radial {
+    position: fixed;
+    top: 10%;
+    left: 35%;
+    width: 800px;
+    height: 800px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    background: radial-gradient(circle,
+            rgba(255, 255, 255, 0.05) 5%,
+            rgba(255, 255, 255, 0) 90%);
+    filter: blur(80px);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+    --montserrat: 'Montserrat', sans-serif;
+    --inter: 'Inter', sans-serif;
+    --poppins: 'Poppins', sans-serif;
+    --white: #D4D6D5;
 }
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-family: var(--poppins);
+    color: var(--white);
+    font-weight: bold;
+    font-size: 8rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    letter-spacing: -2px;
+}
+
+h2 {
+    font-family: var(--inter);
+    font-weight: 200;
+    color: var(--white);
+    opacity: 0.1;
+}
+
+.home-container {
+    position: relative;
+    height: 90vh;
+    overflow: hidden;
+    z-index: 1;
+    background-size: cover;
+  
+    display: flex;
+    justify-content: center; /* horizontálně */
+    align-items: center;     /* vertikálně */
+    text-align: center;      /* volitelné – pro zarovnání textu */
+  }
+
+.about-container {
+    position: relative;
+    z-index: 2;
+    background-color: #1E1F24;
+    padding: 120px 24px;
+  }
+
+.contact-section {
+    padding-top: 200px;
+    padding-bottom: 80px;
+    height: 60vh;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+
+/* === RESPONSIVE DESIGN === */
+
+@media (max-width: 1024px) {
+    .title-container h1 {
+        font-size: 80px !important;
+    }
+
+    h3 {
+        font-size: 48px;
+    }
+
+    .card-main {
+        height: 360px;
+    }
+
+    .card-small {
+        height: 280px;
+    }
+
+    .card-container {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .about-heading {
+        margin: 32px 16px;
+        padding: 0 8px;
+    }
+
+    .description {
+        font-size: 15px;
+        line-height: 170%;
+    }
+
+    .btn-wrapper {
+        max-width: 100%;
+    }
+
+    .contact-section {
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 1040px) {
+
+    /* Home title */
+
+    .home-container{
+        margin-bottom: 80px;
+        height: 100vh;
+    }
+
+    .title-container {
+        padding: 24px;
+        text-align: center;
+    }
+
+    #title {
+        font-size: 48px;
+        justify-content: center;
+    }
+
+    #left,
+    #right {
+        text-align: center;
+        padding: 0;
+    }
+
+    /* About cards */
+    .cards-box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-container {
+        width: 90%;
+        max-width: 340px;
+    }
+
+    /* Contact section */
+    .contact-section {
+        margin-top: 280px;
+        padding: 32px 16px;
+        margin-bottom: 340px;
+    }
+
+    .contact-wrapper {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .content-container {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .contact-card {
+        padding: 16px;
+        max-height: unset;
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .nav {
+        padding: 16px;
+    }
+
+    footer{
+        visibility: hidden;
+    }
+}
+
+/* Začátek: skryté sekce */
+.section-hidden {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  
+  /* Jakmile je sekce viditelná */
+  .section-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }

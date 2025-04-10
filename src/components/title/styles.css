@@ -1,0 +1,26 @@
+.title-container{
+    position: relative;
+    margin: 24px;
+}
+
+#right{
+    text-align: end;
+    padding-right: 16px;
+}
+
+#left{
+    text-align: start;
+    padding-left: 16px;
+
+}
+
+
+#title{
+    display: inline-flex;
+}
+
+.title-container{
+    display: inline-flex;
+    flex-direction: column;
+    padding-bottom: 120px;
+}

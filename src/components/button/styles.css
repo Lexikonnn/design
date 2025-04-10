@@ -1,0 +1,22 @@
+button {
+    cursor: pointer;
+    color: var(--white);
+    font-family: var(--inter);
+    background-color: #1E1F24;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    padding: 16px 32px;
+    width: 100%;
+    border: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* jemný stín */
+    transition: box-shadow 0.3s ease; /* pro hladký hover efekt */
+    border-radius: 4px;
+    transition: all 200ms ease;
+  }
+
+  button:hover{
+    scale: 104%;
+    background-color: #00FFFF; /* kontrastní cyan */
+    color: #1E1F24;  
+  }
